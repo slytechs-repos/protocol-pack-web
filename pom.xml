@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.slytechs.jnet.runtime</groupId>
-	<artifactId>web-protocol-pack</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>web-protocols</artifactId>
+	<version>0.9-SNAPSHOT</version>
 	<name>jNet Protocol Support</name>
-	<description>Advanced protocol, analysis and reassembly base support</description>
+	<description>Web protocols</description>
 	<url>https://www.slytechs.com</url>
 	<properties>
 		<jdk.version>19</jdk.version>
@@ -34,7 +36,8 @@
 		</developer>
 	</developers>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+		<!--
+		https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
@@ -72,11 +75,12 @@
 				<version>3.2.0</version>
 				<configuration>
 					<doctitle>Public API for ${project.name} ${project.version}</doctitle>
-					<windowtitle>Public API for ${project.name} ${project.version}</windowtitle>
+					<windowtitle>Public API for ${project.name}
+						${project.version}</windowtitle>
 					<encoding>${java.encoding}</encoding>
 					<source>${jdk.version}</source>
 					<additionalOptions>
-								${java.preview}
+						${java.preview}
 					</additionalOptions>
 					<show>public</show>
 				</configuration>
@@ -99,13 +103,16 @@
 				<version>3.2.0</version>
 				<configuration>
 					<doctitle>Public API for ${project.name} ${project.version}</doctitle>
-					<windowtitle>Public API for ${project.name} ${project.version}</windowtitle>
-					<testDoctitle>Test API for ${project.name} ${project.version}</testDoctitle>
-					<testWindowtitle>Test API for ${project.name} ${project.version}</testWindowtitle>
+					<windowtitle>Public API for ${project.name}
+						${project.version}</windowtitle>
+					<testDoctitle>Test API for ${project.name}
+						${project.version}</testDoctitle>
+					<testWindowtitle>Test API for ${project.name}
+						${project.version}</testWindowtitle>
 					<encoding>${java.encoding}</encoding>
 					<source>${jdk.version}</source>
 					<additionalOptions>
-								${java.preview}
+						${java.preview}
 					</additionalOptions>
 				</configuration>
 				<reportSets>
@@ -148,7 +155,8 @@
 			</activation>
 			<build></build>
 			<properties>
-				<java.library.path.libpcap.osx>-Djava.library.path=/usr/local/Cellar/libpcap/${libpcap.version}/lib</java.library.path.libpcap.osx>
+				<java.library.path.libpcap.osx>
+					-Djava.library.path=/usr/local/Cellar/libpcap/${libpcap.version}/lib</java.library.path.libpcap.osx>
 				<java.library.path.libpcap>${java.library.path.libpcap.osx}</java.library.path.libpcap>
 				<excludeGroups>windows-api|linux-api</excludeGroups>
 			</properties>
@@ -165,7 +173,8 @@
 				</file>
 			</activation>
 			<properties>
-				<java.library.path.libpcap.osx>-Djava.library.path=/opt/local/lib</java.library.path.libpcap.osx>
+				<java.library.path.libpcap.osx>
+					-Djava.library.path=/opt/local/lib</java.library.path.libpcap.osx>
 				<java.library.path.libpcap>${java.library.path.libpcap.osx}</java.library.path.libpcap>
 				<excludeGroups>windows-api|linux-api</excludeGroups>
 			</properties>
@@ -179,7 +188,8 @@
 				</os>
 			</activation>
 			<properties>
-				<java.library.path.libpcap.linux>-Djava.library.path=/usr/lib/x86-linux-gnu</java.library.path.libpcap.linux>
+				<java.library.path.libpcap.linux>
+					-Djava.library.path=/usr/lib/x86-linux-gnu</java.library.path.libpcap.linux>
 				<java.library.path.libpcap>${java.library.path.libpcap.linux}</java.library.path.libpcap>
 				<excludeGroups>windows-api</excludeGroups>
 			</properties>
@@ -193,7 +203,8 @@
 				</os>
 			</activation>
 			<properties>
-				<java.library.path.libpcap.linux64>-Djava.library.path=/usr/lib/x86_64-linux-gnu</java.library.path.libpcap.linux64>
+				<java.library.path.libpcap.linux64>
+					-Djava.library.path=/usr/lib/x86_64-linux-gnu</java.library.path.libpcap.linux64>
 				<java.library.path.libpcap>${java.library.path.libpcap.linux64}</java.library.path.libpcap>
 				<excludeGroups>windows-api</excludeGroups>
 			</properties>
@@ -207,7 +218,8 @@
 				</os>
 			</activation>
 			<properties>
-				<java.library.path.libpcap.linux64>-Djava.library.path=/usr/lib/x86_64-linux-gnu</java.library.path.libpcap.linux64>
+				<java.library.path.libpcap.linux64>
+					-Djava.library.path=/usr/lib/x86_64-linux-gnu</java.library.path.libpcap.linux64>
 				<java.library.path.libpcap>${java.library.path.libpcap.linux64}</java.library.path.libpcap>
 				<excludeGroups>windows-api</excludeGroups>
 			</properties>
@@ -221,8 +233,10 @@
 				</os>
 			</activation>
 			<properties>
-				<java.library.path.libpcap.windows64>-Djava.library.path="C:\\Windows\\SysWOW64"</java.library.path.libpcap.windows64>
-				<java.library.path.libpcap>${java.library.path.libpcap.windows64}</java.library.path.libpcap>
+				<java.library.path.libpcap.windows64>
+					-Djava.library.path="C:\\Windows\\SysWOW64"</java.library.path.libpcap.windows64>
+				<java.library.path.libpcap>
+					${java.library.path.libpcap.windows64}</java.library.path.libpcap>
 				<excludeGroups>unix-api|linux-api</excludeGroups>
 			</properties>
 		</profile>
@@ -235,7 +249,8 @@
 				</os>
 			</activation>
 			<properties>
-				<java.library.path.libpcap.windows>-Djava.library.path="C:\\Windows\\Program Files"</java.library.path.libpcap.windows>
+				<java.library.path.libpcap.windows>-Djava.library.path="C:\\Windows\\Program
+					Files"</java.library.path.libpcap.windows>
 				<java.library.path.libpcap>${java.library.path.libpcap.windows}</java.library.path.libpcap>
 				<excludeGroups>unix-api|linux-api</excludeGroups>
 			</properties>
@@ -243,18 +258,20 @@
 	</profiles>
 	<issueManagement>
 		<system>Github Issue Tracking</system>
-		<url>https://github.com/slytechs-repos/web-protocol-pack/issues</url>
+		<url>https://github.com/slytechs-repos/web-protocols/issues</url>
 	</issueManagement>
 	<scm>
-		<connection>scm:git:git://github.com/slytechs-repos/web-protocol-pack.git</connection>
-		<developerConnection>scm:git:ssh:git://github.com/slytechs-repos/web-protocol-pack.git</developerConnection>
-		<url>https://github.com/slytechs-repos/web-protocol-pack</url>
+		<connection>
+			scm:git:git://github.com/slytechs-repos/web-protocols.git</connection>
+		<developerConnection>
+			scm:git:ssh:git://github.com/slytechs-repos/web-protocols.git</developerConnection>
+		<url>https://github.com/slytechs-repos/web-protocols</url>
 	</scm>
 	<distributionManagement>
 		<!-- mvn clean site site:stage scm-publish:publish-scm -->
 		<site>
 			<id>github</id>
-			<url>scm:git:git@github.com:slytechs-repos/web-protocol-pack.git</url>
+			<url>scm:git:git@github.com:slytechs-repos/web-protocols.git</url>
 		</site>
 	</distributionManagement>
 </project>
