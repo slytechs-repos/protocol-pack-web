@@ -17,8 +17,8 @@
  */
 package com.slytechs.jnet.protocol.web;
 
-import com.slytechs.jnet.protocol.packet.Header;
-import com.slytechs.jnet.protocol.packet.meta.Meta;
+import com.slytechs.jnet.protocol.Header;
+import com.slytechs.jnet.protocol.meta.Meta;
 import com.slytechs.jnet.protocol.web.constants.WebHeaderInfo;
 
 /**

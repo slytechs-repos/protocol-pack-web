@@ -19,9 +19,9 @@ package com.slytechs.jnet.protocol.web;
 
 import com.slytechs.jnet.protocol.HeaderId;
 import com.slytechs.jnet.protocol.HeaderInfo;
-import com.slytechs.jnet.protocol.Pack;
-import com.slytechs.jnet.protocol.constants.PackInfo;
-import com.slytechs.jnet.protocol.packet.HeaderNotFound;
+import com.slytechs.jnet.protocol.HeaderNotFound;
+import com.slytechs.jnet.protocol.ProtocolPack;
+import com.slytechs.jnet.protocol.core.constants.PackInfo;
 import com.slytechs.jnet.protocol.web.constants.WebHeaderInfo;
 
 /**
@@ -30,7 +30,7 @@ import com.slytechs.jnet.protocol.web.constants.WebHeaderInfo;
  * @author Mark Bednarczyk
  *
  */
-public final class WebPack extends Pack<WebHeaderInfo> {
+public final class WebPack extends ProtocolPack<WebHeaderInfo> {
 
 	/** Core Protocol Pack singleton definition. */
 	private static final WebPack SINGLETON = new WebPack();
@@ -47,7 +47,7 @@ public final class WebPack extends Pack<WebHeaderInfo> {
 	}
 
 	/**
-	 * @see com.slytechs.jnet.protocol.Pack#getHeader(int)
+	 * @see com.slytechs.jnet.protocol.ProtocolPack#getHeader(int)
 	 */
 	@Override
 	public HeaderInfo getHeader(int id) throws HeaderNotFound {
