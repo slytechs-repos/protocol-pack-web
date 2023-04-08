@@ -17,17 +17,17 @@
  */
 package com.slytechs.protocol.pack.web.constants;
 
-import static com.slytechs.jnet.protocol.core.constants.PackInfo.*;
+import static com.slytechs.protocol.pack.core.constants.PackInfo.*;
 
 import java.util.function.Supplier;
 
-import com.slytechs.jnet.protocol.Header;
-import com.slytechs.jnet.protocol.HeaderExtensionInfo;
-import com.slytechs.jnet.protocol.HeaderId;
-import com.slytechs.jnet.protocol.HeaderInfo;
-import com.slytechs.jnet.protocol.HeaderSupplier;
-import com.slytechs.jnet.protocol.Other;
-import com.slytechs.jnet.protocol.core.constants.PackInfo;
+import com.slytechs.protocol.Header;
+import com.slytechs.protocol.HeaderExtensionInfo;
+import com.slytechs.protocol.HeaderId;
+import com.slytechs.protocol.HeaderInfo;
+import com.slytechs.protocol.HeaderSupplier;
+import com.slytechs.protocol.Other;
+import com.slytechs.protocol.pack.core.constants.PackInfo;
 import com.slytechs.protocol.pack.web.Html;
 import com.slytechs.protocol.pack.web.Http;
 
@@ -84,7 +84,7 @@ public enum WebHeaderInfo implements HeaderInfo {
 	}
 
 	/**
-	 * @see com.slytechs.jnet.protocol.HeaderInfo#getExtensionInfos()
+	 * @see com.slytechs.protocol.HeaderInfo#getExtensionInfos()
 	 */
 	@Override
 	public HeaderExtensionInfo[] getExtensionInfos() {
@@ -92,7 +92,7 @@ public enum WebHeaderInfo implements HeaderInfo {
 	}
 
 	/**
-	 * @see com.slytechs.jnet.protocol.HeaderInfo#getHeaderId()
+	 * @see com.slytechs.protocol.HeaderInfo#getHeaderId()
 	 */
 	@Override
 	public int getHeaderId() {
@@ -108,7 +108,7 @@ public enum WebHeaderInfo implements HeaderInfo {
 	}
 
 	/**
-	 * @see com.slytechs.jnet.protocol.HeaderSupplier#newHeaderInstance()
+	 * @see com.slytechs.protocol.HeaderSupplier#newHeaderInstance()
 	 */
 	@Override
 	public Header newHeaderInstance() {

@@ -21,8 +21,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.slytechs.jnet.protocol.ProtocolPack;
-import com.slytechs.jnet.protocol.core.constants.PackInfo;
+import com.slytechs.protocol.ProtocolPack;
+import com.slytechs.protocol.pack.core.constants.PackInfo;
 
 /**
  * @author Sly Technologies Inc

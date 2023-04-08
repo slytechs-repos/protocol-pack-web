@@ -17,11 +17,11 @@
  */
 package com.slytechs.protocol.pack.web;
 
-import com.slytechs.jnet.protocol.HeaderId;
-import com.slytechs.jnet.protocol.HeaderInfo;
-import com.slytechs.jnet.protocol.HeaderNotFound;
-import com.slytechs.jnet.protocol.ProtocolPack;
-import com.slytechs.jnet.protocol.core.constants.PackInfo;
+import com.slytechs.protocol.HeaderId;
+import com.slytechs.protocol.HeaderInfo;
+import com.slytechs.protocol.HeaderNotFound;
+import com.slytechs.protocol.ProtocolPack;
+import com.slytechs.protocol.pack.core.constants.PackInfo;
 import com.slytechs.protocol.pack.web.constants.WebHeaderInfo;
 
 /**
@@ -47,7 +47,7 @@ public final class WebPack extends ProtocolPack<WebHeaderInfo> {
 	}
 
 	/**
-	 * @see com.slytechs.jnet.protocol.ProtocolPack#getHeader(int)
+	 * @see com.slytechs.protocol.ProtocolPack#getHeader(int)
 	 */
 	@Override
 	public HeaderInfo getHeader(int id) throws HeaderNotFound {
