@@ -15,7 +15,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.jnet.protocol.web.constants;
+package com.slytechs.protocol.pack.web.constants;
 
 import static com.slytechs.jnet.protocol.core.constants.PackInfo.*;
 
@@ -28,8 +28,8 @@ import com.slytechs.jnet.protocol.HeaderInfo;
 import com.slytechs.jnet.protocol.HeaderSupplier;
 import com.slytechs.jnet.protocol.Other;
 import com.slytechs.jnet.protocol.core.constants.PackInfo;
-import com.slytechs.jnet.protocol.web.Html;
-import com.slytechs.jnet.protocol.web.Http;
+import com.slytechs.protocol.pack.web.Html;
+import com.slytechs.protocol.pack.web.Http;
 
 /**
  * Core protocol pack. Table of all protocols included in the core protocol

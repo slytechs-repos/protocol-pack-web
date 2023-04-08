@@ -15,11 +15,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.slytechs.jnet.protocol.web;
+package com.slytechs.protocol.pack.web;
 
 import com.slytechs.jnet.protocol.Header;
 import com.slytechs.jnet.protocol.meta.Meta;
-import com.slytechs.jnet.protocol.web.constants.WebHeaderInfo;
+import com.slytechs.protocol.pack.web.constants.WebHeaderInfo;
 
 /**
  * @author Sly Technologies Inc
@@ -28,17 +28,38 @@ import com.slytechs.jnet.protocol.web.constants.WebHeaderInfo;
  *
  */
 @Meta
-public class Html extends Header {
-	public static final int ID = WebHeaderInfo.CORE_ID_HTML;
+public class Http extends Header {
+	public static final int ID = WebHeaderInfo.CORE_ID_HTTP;
 
-	public Html() {
+	public Http() {
 		super(ID);
 	}
 
 	/**
 	 * @return
 	 */
-	public char[] text() {
+	public boolean isDechunked() {
+		throw new UnsupportedOperationException("not implemented yet");
+	}
+
+	/**
+	 * @return
+	 */
+	public char[] dechunkedData() {
+		throw new UnsupportedOperationException("not implemented yet");
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isDecompressed() {
+		throw new UnsupportedOperationException("not implemented yet");
+	}
+
+	/**
+	 * @return
+	 */
+	public char[] decompressedData() {
 		throw new UnsupportedOperationException("not implemented yet");
 	}
 

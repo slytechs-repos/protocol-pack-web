@@ -15,14 +15,14 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.jnet.protocol.web;
+package com.slytechs.protocol.pack.web;
 
 import com.slytechs.jnet.protocol.HeaderId;
 import com.slytechs.jnet.protocol.HeaderInfo;
 import com.slytechs.jnet.protocol.HeaderNotFound;
 import com.slytechs.jnet.protocol.ProtocolPack;
 import com.slytechs.jnet.protocol.core.constants.PackInfo;
-import com.slytechs.jnet.protocol.web.constants.WebHeaderInfo;
+import com.slytechs.protocol.pack.web.constants.WebHeaderInfo;
 
 /**
  * @author Sly Technologies Inc

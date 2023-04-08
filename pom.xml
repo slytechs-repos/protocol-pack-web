@@ -2,11 +2,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.slytechs.jnet.runtime</groupId>
+	<groupId>com.slytechs.jnet</groupId>
 	<artifactId>web-protocols</artifactId>
+	<!-- mvn versions:set -DnewVersion=_new_version_ -->
 	<version>0.9-SNAPSHOT</version>
-	<name>jNet Protocol Support</name>
-	<description>Web protocols</description>
+	<name>Web Protocol Pack</name>
+	<description>Web related group of network protocol definitions</description>
 	<url>https://www.slytechs.com</url>
 	<properties>
 		<jdk.version>19</jdk.version>
@@ -15,17 +16,16 @@
 		<maven.compiler.target>${jdk.version}</maven.compiler.target>
 		<java.preview>--enable-preview</java.preview>
 		<java.encoding>UTF-8</java.encoding>
+		<java.native>--enable-native-access=ALL-UNNAMED</java.native>
+		<groups>user-permission</groups>
+		<excludeGroups>windows-api|unix-api|linux-api</excludeGroups>
 	</properties>
 	<licenses>
 		<license>
-			<name>Free License</name>
-			<url>https://www.slytechs.com/free-license</url>
+			<name>Sly Technology's Free License</name>
+			<url>http://www.slytechs.com/free-license-text</url>
 		</license>
 	</licenses>
-	<organization>
-		<name>Sly Technologies Inc</name>
-		<url>http://slytechs.com</url>
-	</organization>
 	<developers>
 		<developer>
 			<id>markb</id>
@@ -43,6 +43,26 @@
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.10.1</version>
 		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite-api -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite-api</artifactId>
+			<version>1.9.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.9.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.slytechs.jnet</groupId>
+			<artifactId>core-protocols</artifactId>
+			<version>0.9-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
@@ -53,6 +73,13 @@
 				</excludes>
 			</resource>
 		</resources>
+		<extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>1.7.0</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -69,20 +96,41 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.7.1</version>
 			</plugin>
+			<!-- Unit test the API -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M7</version>
+				<configuration>
+					<trimStackTrace>true</trimStackTrace>
+					<encoding>${java.encoding}</encoding>
+					<skipAfterFailureCount>1</skipAfterFailureCount>
+					<reuseForks>true</reuseForks>
+					<skipTests>true</skipTests>
+					<groups>${groups}</groups>
+					<excludedGroups>${excludeGroups}</excludedGroups>
+					<argLine>
+						${java.library.path.libpcap} ${java.preview}
+						${java.native}
+					</argLine>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.4.1 </version>
 				<configuration>
 					<doctitle>Public API for ${project.name} ${project.version}</doctitle>
 					<windowtitle>Public API for ${project.name}
 						${project.version}</windowtitle>
 					<encoding>${java.encoding}</encoding>
 					<source>${jdk.version}</source>
+					<overview>${basedir}/Overview.html</overview>
 					<additionalOptions>
 						${java.preview}
 					</additionalOptions>
 					<show>public</show>
+					<excludePackageNames>*.internal</excludePackageNames>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -99,8 +147,18 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.0.0-M7</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.22.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.4.1</version>
 				<configuration>
 					<doctitle>Public API for ${project.name} ${project.version}</doctitle>
 					<windowtitle>Public API for ${project.name}
@@ -111,9 +169,11 @@
 						${project.version}</testWindowtitle>
 					<encoding>${java.encoding}</encoding>
 					<source>${jdk.version}</source>
+					<overview>${basedir}/Overview.html</overview>
 					<additionalOptions>
 						${java.preview}
 					</additionalOptions>
+					<excludePackageNames>*.internal</excludePackageNames>
 				</configuration>
 				<reportSets>
 					<reportSet>
@@ -142,127 +202,16 @@
 			</plugin>
 		</plugins>
 	</reporting>
-	<profiles>
-		<profile>
-			<id>osx-homebrew</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-				<file>
-					<exists>/usr/local/Cellar/libpcap/${libpcap.version}</exists>
-				</file>
-			</activation>
-			<build></build>
-			<properties>
-				<java.library.path.libpcap.osx>
-					-Djava.library.path=/usr/local/Cellar/libpcap/${libpcap.version}/lib</java.library.path.libpcap.osx>
-				<java.library.path.libpcap>${java.library.path.libpcap.osx}</java.library.path.libpcap>
-				<excludeGroups>windows-api|linux-api</excludeGroups>
-			</properties>
-		</profile>
-		<profile>
-			<id>osx-macports</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-				<file>
-					<exists>/opt/local/lib/libpcap.dylib</exists>
-					<missing>/usr/local/Cellar/libpcap/${libpcap.version}/lib</missing>
-				</file>
-			</activation>
-			<properties>
-				<java.library.path.libpcap.osx>
-					-Djava.library.path=/opt/local/lib</java.library.path.libpcap.osx>
-				<java.library.path.libpcap>${java.library.path.libpcap.osx}</java.library.path.libpcap>
-				<excludeGroups>windows-api|linux-api</excludeGroups>
-			</properties>
-		</profile>
-		<profile>
-			<id>linux-x86</id>
-			<activation>
-				<os>
-					<name>Linux</name>
-					<arch>x86</arch>
-				</os>
-			</activation>
-			<properties>
-				<java.library.path.libpcap.linux>
-					-Djava.library.path=/usr/lib/x86-linux-gnu</java.library.path.libpcap.linux>
-				<java.library.path.libpcap>${java.library.path.libpcap.linux}</java.library.path.libpcap>
-				<excludeGroups>windows-api</excludeGroups>
-			</properties>
-		</profile>
-		<profile>
-			<id>linux-amd64</id>
-			<activation>
-				<os>
-					<name>Linux</name>
-					<arch>amd64</arch>
-				</os>
-			</activation>
-			<properties>
-				<java.library.path.libpcap.linux64>
-					-Djava.library.path=/usr/lib/x86_64-linux-gnu</java.library.path.libpcap.linux64>
-				<java.library.path.libpcap>${java.library.path.libpcap.linux64}</java.library.path.libpcap>
-				<excludeGroups>windows-api</excludeGroups>
-			</properties>
-		</profile>
-		<profile>
-			<id>linux-x86_64</id>
-			<activation>
-				<os>
-					<name>Linux</name>
-					<arch>x86_64</arch>
-				</os>
-			</activation>
-			<properties>
-				<java.library.path.libpcap.linux64>
-					-Djava.library.path=/usr/lib/x86_64-linux-gnu</java.library.path.libpcap.linux64>
-				<java.library.path.libpcap>${java.library.path.libpcap.linux64}</java.library.path.libpcap>
-				<excludeGroups>windows-api</excludeGroups>
-			</properties>
-		</profile>
-		<profile>
-			<id>windows-x86_64</id>
-			<activation>
-				<os>
-					<family>Windows</family>
-					<arch>x86_64</arch>
-				</os>
-			</activation>
-			<properties>
-				<java.library.path.libpcap.windows64>
-					-Djava.library.path="C:\\Windows\\SysWOW64"</java.library.path.libpcap.windows64>
-				<java.library.path.libpcap>
-					${java.library.path.libpcap.windows64}</java.library.path.libpcap>
-				<excludeGroups>unix-api|linux-api</excludeGroups>
-			</properties>
-		</profile>
-		<profile>
-			<id>windows-x86</id>
-			<activation>
-				<os>
-					<family>Windows</family>
-					<arch>x86</arch>
-				</os>
-			</activation>
-			<properties>
-				<java.library.path.libpcap.windows>-Djava.library.path="C:\\Windows\\Program
-					Files"</java.library.path.libpcap.windows>
-				<java.library.path.libpcap>${java.library.path.libpcap.windows}</java.library.path.libpcap>
-				<excludeGroups>unix-api|linux-api</excludeGroups>
-			</properties>
-		</profile>
-	</profiles>
+	<organization>
+		<name>Sly Technologies Inc</name>
+		<url>http://slytechs.com</url>
+	</organization>
 	<issueManagement>
 		<system>Github Issue Tracking</system>
 		<url>https://github.com/slytechs-repos/web-protocols/issues</url>
 	</issueManagement>
 	<scm>
-		<connection>
-			scm:git:git://github.com/slytechs-repos/web-protocols.git</connection>
+		<connection>scm:git:git://github.com/slytechs-repos/web-protocols.git</connection>
 		<developerConnection>
 			scm:git:ssh:git://github.com/slytechs-repos/web-protocols.git</developerConnection>
 		<url>https://github.com/slytechs-repos/web-protocols</url>
