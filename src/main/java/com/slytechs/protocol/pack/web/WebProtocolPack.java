@@ -21,8 +21,8 @@ import com.slytechs.protocol.HeaderInfo;
 import com.slytechs.protocol.HeaderNotFound;
 import com.slytechs.protocol.pack.Pack;
 import com.slytechs.protocol.pack.PackId;
-import com.slytechs.protocol.pack.DeclaredPackIds;
-import com.slytechs.protocol.pack.web.constants.WebPackIds;
+import com.slytechs.protocol.pack.ProtocolPackTable;
+import com.slytechs.protocol.pack.web.constants.WebIdTable;
 
 /**
  * @author Sly Technologies Inc
@@ -30,20 +30,20 @@ import com.slytechs.protocol.pack.web.constants.WebPackIds;
  * @author Mark Bednarczyk
  *
  */
-public final class WebPack extends Pack<WebPackIds> {
+public final class WebProtocolPack extends Pack<WebIdTable> {
 
 	/** Core Protocol Pack singleton definition. */
-	private static final WebPack SINGLETON = new WebPack();
+	private static final WebProtocolPack SINGLETON = new WebProtocolPack();
 
-	public static WebPack singleton() {
+	public static WebProtocolPack singleton() {
 		return SINGLETON;
 	}
 
 	/**
 	 * Pack definitions are designed to be singltons.
 	 */
-	private WebPack() {
-		super(DeclaredPackIds.WEB, WebPackIds.values());
+	private WebProtocolPack() {
+		super(ProtocolPackTable.WEB, WebIdTable.values());
 	}
 
 	/**
@@ -53,17 +53,17 @@ public final class WebPack extends Pack<WebPackIds> {
 	public HeaderInfo getHeader(int id) throws HeaderNotFound {
 		int packId = PackId.decodePackId(id);
 		int hdrOrdinal = PackId.decodeIdOrdinal(id);
-		if (packId != DeclaredPackIds.PACK_ID_CORE)
+		if (packId != ProtocolPackTable.PACK_ID_CORE)
 			throw new HeaderNotFound("invalid pack id [%d] not applicable to [%s] pack"
 					.formatted(packId, super.getPackName()));
 
-		var headers = WebPackIds.values();
+		var headers = WebIdTable.values();
 
 		if (hdrOrdinal > headers.length)
 			throw new HeaderNotFound("header id [%d] in [%s] pack"
 					.formatted(id, super.getPackName()));
 
-		return WebPackIds.values()[hdrOrdinal];
+		return WebIdTable.values()[hdrOrdinal];
 	}
 
 }

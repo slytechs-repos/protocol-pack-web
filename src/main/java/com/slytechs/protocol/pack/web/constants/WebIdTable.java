@@ -17,7 +17,7 @@
  */
 package com.slytechs.protocol.pack.web.constants;
 
-import static com.slytechs.protocol.pack.DeclaredPackIds.*;
+import static com.slytechs.protocol.pack.ProtocolPackTable.*;
 
 import java.util.function.Supplier;
 
@@ -27,34 +27,34 @@ import com.slytechs.protocol.HeaderInfo;
 import com.slytechs.protocol.HeaderSupplier;
 import com.slytechs.protocol.Other;
 import com.slytechs.protocol.pack.PackId;
-import com.slytechs.protocol.pack.DeclaredPackIds;
+import com.slytechs.protocol.pack.ProtocolPackTable;
 import com.slytechs.protocol.pack.web.Html;
 import com.slytechs.protocol.pack.web.Http;
 
 /**
- * Core protocol pack. Table of all protocols included in the core protocol
- * pack.
+ * Web protocol pack. Table of all protocols included in the web protocol pack.
  * 
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
- * @author Mark Bednarczyk
  *
  */
-public enum WebPackIds implements HeaderInfo {
+public enum WebIdTable implements HeaderInfo, PackId {
 
+	PACK(),
 	HTTP(Http::new),
 	HTML(Html::new),
 
 	;
 
 	// @formatter:off
-	public static final int CORE_ID_HTTP    = 0  | PACK_ID_WEB;
-	public static final int CORE_ID_HTML    = 1  | PACK_ID_WEB;
+	public static final int WEB_ID_PACK    = 0  | PACK_ID_WEB;
+	public static final int WEB_ID_HTTP    = 1  | PACK_ID_WEB;
+	public static final int WEB_ID_HTML    = 2  | PACK_ID_WEB;
 	// @formatter:on
 
-	public static WebPackIds valueOf(int id) {
+	public static WebIdTable valueOf(int id) {
 		int pack = PackId.decodePackId(id);
-		if (pack != DeclaredPackIds.PACK_ID_CORE)
+		if (pack != ProtocolPackTable.PACK_ID_CORE)
 			return null;
 
 		int ordinal = PackId.decodeIdOrdinal(id);
@@ -65,20 +65,20 @@ public enum WebPackIds implements HeaderInfo {
 	private final HeaderSupplier supplier;
 	private final Supplier<HeaderExtensionInfo[]> extensionsSupplier;
 
-	WebPackIds() {
-		this.id = PackId.encodeId(DeclaredPackIds.CORE, ordinal());
+	WebIdTable() {
+		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = Other::new;
 		this.extensionsSupplier = () -> HeaderExtensionInfo.EMPTY_ARRAY;
 	}
 
-	WebPackIds(HeaderSupplier supplier) {
-		this.id = PackId.encodeId(DeclaredPackIds.CORE, ordinal());
+	WebIdTable(HeaderSupplier supplier) {
+		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = supplier;
 		this.extensionsSupplier = () -> HeaderExtensionInfo.EMPTY_ARRAY;
 	}
 
-	WebPackIds(HeaderSupplier supplier, Supplier<HeaderExtensionInfo[]> extensionsSupplier) {
-		this.id = PackId.encodeId(DeclaredPackIds.CORE, ordinal());
+	WebIdTable(HeaderSupplier supplier, Supplier<HeaderExtensionInfo[]> extensionsSupplier) {
+		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = supplier;
 		this.extensionsSupplier = extensionsSupplier;
 	}
@@ -92,10 +92,10 @@ public enum WebPackIds implements HeaderInfo {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.HeaderInfo#getHeaderId()
+	 * @see com.slytechs.protocol.HeaderInfo#id()
 	 */
 	@Override
-	public int getHeaderId() {
+	public int id() {
 		return id;
 	}
 
@@ -103,7 +103,7 @@ public enum WebPackIds implements HeaderInfo {
 	 * @param decodeId
 	 * @return
 	 */
-	public static WebPackIds toStringId(int id) {
+	public static WebIdTable toStringId(int id) {
 		return values()[PackId.decodeIdOrdinal(id)];
 	}
 

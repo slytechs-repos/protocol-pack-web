@@ -19,7 +19,7 @@ package com.slytechs.protocol.pack.web;
 
 import com.slytechs.protocol.Header;
 import com.slytechs.protocol.meta.Meta;
-import com.slytechs.protocol.pack.web.constants.WebPackIds;
+import com.slytechs.protocol.pack.web.constants.WebIdTable;
 
 /**
  * @author Sly Technologies Inc
@@ -29,7 +29,7 @@ import com.slytechs.protocol.pack.web.constants.WebPackIds;
  */
 @Meta
 public class Http extends Header {
-	public static final int ID = WebPackIds.CORE_ID_HTTP;
+	public static final int ID = WebIdTable.WEB_ID_HTTP;
 
 	public Http() {
 		super(ID);

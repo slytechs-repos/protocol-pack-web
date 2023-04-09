@@ -22,7 +22,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.slytechs.protocol.pack.Pack;
-import com.slytechs.protocol.pack.DeclaredPackIds;
+import com.slytechs.protocol.pack.ProtocolPackTable;
 
 /**
  * @author Sly Technologies Inc
@@ -48,7 +48,7 @@ class TestWebPack {
 
 	@Test
 	void loadPack_WEB() {
-		boolean loaded = Pack.loadPack(DeclaredPackIds.WEB);
+		boolean loaded = Pack.loadPack(ProtocolPackTable.WEB);
 
 //		System.out.printf("WEB loaded=%s%n", loaded);
 
