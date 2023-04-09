@@ -22,13 +22,13 @@ import com.slytechs.protocol.meta.Meta;
 import com.slytechs.protocol.pack.web.constants.WebIdTable;
 
 /**
+ * Hypertext Transfer Protocol (HTTP).
+ * 
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
- * @author Mark Bednarczyk
- *
  */
 @Meta
-public class Http extends Header {
+public final class Http extends Header {
 	public static final int ID = WebIdTable.WEB_ID_HTTP;
 
 	public Http() {
@@ -39,7 +39,7 @@ public class Http extends Header {
 	 * @return
 	 */
 	public boolean isDechunked() {
-		throw new UnsupportedOperationException("not implemented yet");
+		return false;
 	}
 
 	/**

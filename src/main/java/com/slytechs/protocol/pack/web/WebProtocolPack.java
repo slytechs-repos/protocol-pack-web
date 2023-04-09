@@ -25,10 +25,10 @@ import com.slytechs.protocol.pack.ProtocolPackTable;
 import com.slytechs.protocol.pack.web.constants.WebIdTable;
 
 /**
+ * Protocol pack level information about the protocols in this module.
+ * 
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
- * @author Mark Bednarczyk
- *
  */
 public final class WebProtocolPack extends Pack<WebIdTable> {
 

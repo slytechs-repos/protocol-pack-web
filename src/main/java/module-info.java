@@ -15,9 +15,15 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 /**
+ * Web protocol pack.
+ * <p>
+ * Provides support various web related protocols, data dechunking,
+ * decompression, decryption and other services.
+ * </p>
+ * 
  * @author mark
- *
  */
 module com.slytechs.protocol.pack.web {
 	exports com.slytechs.protocol.pack.web;
