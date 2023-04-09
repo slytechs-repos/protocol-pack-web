@@ -21,8 +21,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.slytechs.protocol.ProtocolPack;
-import com.slytechs.protocol.pack.core.constants.PackInfo;
+import com.slytechs.protocol.pack.Pack;
+import com.slytechs.protocol.pack.DeclaredPackIds;
 
 /**
  * @author Sly Technologies Inc
@@ -48,11 +48,11 @@ class TestWebPack {
 
 	@Test
 	void loadPack_WEB() {
-		boolean loaded = ProtocolPack.loadPack(PackInfo.WEB);
-		
+		boolean loaded = Pack.loadPack(DeclaredPackIds.WEB);
+
 //		System.out.printf("WEB loaded=%s%n", loaded);
 
-		ProtocolPack.listAllDeclaredPacks().forEach(System.out::println);
+		Pack.listAllDeclaredPacks().forEach(System.out::println);
 	}
 
 }
