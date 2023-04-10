@@ -84,7 +84,7 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.HeaderInfo#getExtensionInfos()
+	 * @see com.slytechs.protocol.pack.HeaderInfo#getExtensionInfos()
 	 */
 	@Override
 	public HeaderExtensionInfo[] getExtensionInfos() {
@@ -92,7 +92,7 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.HeaderInfo#id()
+	 * @see com.slytechs.protocol.pack.HeaderInfo#id()
 	 */
 	@Override
 	public int id() {
@@ -108,7 +108,7 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.HeaderSupplier#newHeaderInstance()
+	 * @see com.slytechs.protocol.pack.HeaderSupplier#newHeaderInstance()
 	 */
 	@Override
 	public Header newHeaderInstance() {
