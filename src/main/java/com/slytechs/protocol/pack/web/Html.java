@@ -48,7 +48,7 @@ public final class Html extends Header {
 	 * @return the char[]
 	 */
 	public char[] text() {
-		byte[] array = new byte[length()];
+		byte[] array = new byte[headerLength()];
 
 		return new String(array, StandardCharsets.UTF_8)
 				.toCharArray();
