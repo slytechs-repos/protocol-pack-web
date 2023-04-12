@@ -23,18 +23,17 @@ import com.slytechs.protocol.descriptor.DissectorExtension;
 import com.slytechs.protocol.descriptor.PacketDissector.RecordRecorder;
 
 /**
+ * Web protocol pack, descriptor type 2 dissector.
+ * 
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
- * @author Mark Bednarczyk
  *
  */
-class WebType2PacketDissector implements DissectorExtension {
+class WebType2Dissector implements DissectorExtension {
 
 	private RecordRecorder recorder;
 
-	private DissectorExtension ext;
-
-	public WebType2PacketDissector() {
+	public WebType2Dissector() {
 	}
 
 	/**
@@ -59,7 +58,7 @@ class WebType2PacketDissector implements DissectorExtension {
 
 	private void dissectHttp(ByteBuffer buf, int offset) {
 		int len = buf.remaining() - offset;
-		
+
 		if (!addRecord(WebIdTable.WEB_ID_HTTP, offset, len))
 			return;
 	}
@@ -76,7 +75,6 @@ class WebType2PacketDissector implements DissectorExtension {
 	 */
 	@Override
 	public void setExtensions(DissectorExtension ext) {
-		this.ext = ext;
 	}
 
 	/**

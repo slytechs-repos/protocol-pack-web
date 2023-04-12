@@ -44,7 +44,7 @@ class TestHttpHeader {
 
 	static {
 		Pack.loadAllDetectedPacks();
-		Pack.listAllLoadedPacks().forEach(System.out::println);
+		Pack.listAllDeclaredPacks().forEach(System.out::println);
 	}
 
 	static final PacketDissector DISSECTOR = PacketDissector

@@ -53,7 +53,7 @@ public final class Http extends Header {
 	 * @return
 	 */
 	public boolean isDecompressed() {
-		throw new UnsupportedOperationException("not implemented yet");
+		return false;
 	}
 
 	/**

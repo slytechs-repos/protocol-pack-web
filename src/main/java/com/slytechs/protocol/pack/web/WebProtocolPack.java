@@ -46,7 +46,7 @@ public final class WebProtocolPack extends Pack<WebIdTable> {
 
 	private DissectorExtension newExtension(PacketDescriptorType type) {
 		return switch (type) {
-		case TYPE2 -> new WebType2PacketDissector();
+		case TYPE2 -> new WebType2Dissector();
 		default -> null;
 		};
 	}
