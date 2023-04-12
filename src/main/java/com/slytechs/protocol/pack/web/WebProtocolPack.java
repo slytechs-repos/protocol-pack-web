@@ -17,11 +17,15 @@
  */
 package com.slytechs.protocol.pack.web;
 
+import java.util.Optional;
+
 import com.slytechs.protocol.HeaderInfo;
-import com.slytechs.protocol.HeaderNotFound;
+import com.slytechs.protocol.descriptor.DissectorExtension;
+import com.slytechs.protocol.descriptor.DissectorExtension.DissectorExtensionFactory;
 import com.slytechs.protocol.pack.Pack;
 import com.slytechs.protocol.pack.PackId;
 import com.slytechs.protocol.pack.ProtocolPackTable;
+import com.slytechs.protocol.pack.core.constants.PacketDescriptorType;
 import com.slytechs.protocol.pack.web.constants.WebIdTable;
 
 /**
@@ -32,7 +36,22 @@ import com.slytechs.protocol.pack.web.constants.WebIdTable;
  */
 public final class WebProtocolPack extends Pack<WebIdTable> {
 
-	/** Core Protocol Pack singleton definition. */
+	/**
+	 * @see com.slytechs.protocol.pack.Pack#extensionFactory()
+	 */
+	@Override
+	protected DissectorExtensionFactory extensionFactory() {
+		return this::newExtension;
+	}
+
+	private DissectorExtension newExtension(PacketDescriptorType type) {
+		return switch (type) {
+		case TYPE2 -> new WebType2PacketDissector();
+		default -> null;
+		};
+	}
+
+	/** WEB Protocol Pack singleton definition. */
 	private static final WebProtocolPack SINGLETON = new WebProtocolPack();
 
 	public static WebProtocolPack singleton() {
@@ -47,23 +66,21 @@ public final class WebProtocolPack extends Pack<WebIdTable> {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.Pack#getHeader(int)
+	 * @see com.slytechs.protocol.Pack#findHeader(int)
 	 */
 	@Override
-	public HeaderInfo getHeader(int id) throws HeaderNotFound {
+	public Optional<HeaderInfo> findHeader(int id) {
 		int packId = PackId.decodePackId(id);
 		int hdrOrdinal = PackId.decodeIdOrdinal(id);
-		if (packId != ProtocolPackTable.PACK_ID_CORE)
-			throw new HeaderNotFound("invalid pack id [%d] not applicable to [%s] pack"
-					.formatted(packId, super.getPackName()));
+		if (packId != ProtocolPackTable.PACK_ID_WEB)
+			return Optional.empty();
 
 		var headers = WebIdTable.values();
 
 		if (hdrOrdinal > headers.length)
-			throw new HeaderNotFound("header id [%d] in [%s] pack"
-					.formatted(id, super.getPackName()));
+			return Optional.empty();
 
-		return WebIdTable.values()[hdrOrdinal];
+		return Optional.of(WebIdTable.values()[hdrOrdinal]);
 	}
 
 }

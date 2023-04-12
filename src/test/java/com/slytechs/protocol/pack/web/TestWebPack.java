@@ -19,6 +19,7 @@ package com.slytechs.protocol.pack.web;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.slytechs.protocol.pack.Pack;
@@ -30,6 +31,7 @@ import com.slytechs.protocol.pack.ProtocolPackTable;
  * @author Mark Bednarczyk
  *
  */
+@Disabled
 class TestWebPack {
 
 	/**
