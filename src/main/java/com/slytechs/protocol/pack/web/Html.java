@@ -24,8 +24,8 @@ import com.slytechs.protocol.meta.Meta;
 import com.slytechs.protocol.pack.web.constants.WebIdTable;
 
 /**
- * Hypertext Markup Language (HTML)
- * 
+ * Hypertext Markup Language (HTML).
+ *
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
  */
@@ -43,7 +43,7 @@ public final class Html extends Header {
 	}
 
 	/**
-	 * The contents of the html
+	 * The contents of the html.
 	 *
 	 * @return the char[]
 	 */

@@ -40,18 +40,34 @@ import com.slytechs.protocol.pack.web.Http;
  */
 public enum WebIdTable implements HeaderInfo, PackId {
 
+	/** The pack. */
 	PACK(),
+
+	/** The http. */
 	HTTP(Http::new),
+
+	/** The html. */
 	HTML(Html::new),
 
 	;
 
+	/** The Constant WEB_ID_PACK. */
 	// @formatter:off
 	public static final int WEB_ID_PACK    = 0  | PACK_ID_WEB;
+	
+	/** The Constant WEB_ID_HTTP. */
 	public static final int WEB_ID_HTTP    = 1  | PACK_ID_WEB;
+	
+	/** The Constant WEB_ID_HTML. */
 	public static final int WEB_ID_HTML    = 2  | PACK_ID_WEB;
 	// @formatter:on
 
+	/**
+	 * Value of.
+	 *
+	 * @param id the id
+	 * @return the web id table
+	 */
 	public static WebIdTable valueOf(int id) {
 		int pack = PackId.decodePackId(id);
 		if (pack != ProtocolPackTable.PACK_ID_CORE)
@@ -61,22 +77,41 @@ public enum WebIdTable implements HeaderInfo, PackId {
 		return values()[ordinal];
 	}
 
+	/** The id. */
 	private final int id;
+
+	/** The supplier. */
 	private final HeaderSupplier supplier;
+
+	/** The extensions supplier. */
 	private final Supplier<HeaderExtensionInfo[]> extensionsSupplier;
 
+	/**
+	 * Instantiates a new web id table.
+	 */
 	WebIdTable() {
 		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = Other::new;
 		this.extensionsSupplier = () -> HeaderExtensionInfo.EMPTY_ARRAY;
 	}
 
+	/**
+	 * Instantiates a new web id table.
+	 *
+	 * @param supplier the supplier
+	 */
 	WebIdTable(HeaderSupplier supplier) {
 		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = supplier;
 		this.extensionsSupplier = () -> HeaderExtensionInfo.EMPTY_ARRAY;
 	}
 
+	/**
+	 * Instantiates a new web id table.
+	 *
+	 * @param supplier           the supplier
+	 * @param extensionsSupplier the extensions supplier
+	 */
 	WebIdTable(HeaderSupplier supplier, Supplier<HeaderExtensionInfo[]> extensionsSupplier) {
 		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = supplier;
@@ -84,7 +119,9 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.pack.HeaderInfo#getExtensionInfos()
+	 * Gets the extension infos.
+	 *
+	 * @return the extension infos
 	 */
 	@Override
 	public HeaderExtensionInfo[] getExtensionInfos() {
@@ -92,7 +129,9 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.pack.HeaderInfo#id()
+	 * Id.
+	 *
+	 * @return the int
 	 */
 	@Override
 	public int id() {
@@ -100,15 +139,19 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	}
 
 	/**
-	 * @param decodeId
-	 * @return
+	 * To string id.
+	 *
+	 * @param id the id
+	 * @return the web id table
 	 */
 	public static WebIdTable toStringId(int id) {
 		return values()[PackId.decodeIdOrdinal(id)];
 	}
 
 	/**
-	 * @see com.slytechs.protocol.pack.HeaderSupplier#newHeaderInstance()
+	 * New header instance.
+	 *
+	 * @return the header
 	 */
 	@Override
 	public Header newHeaderInstance() {

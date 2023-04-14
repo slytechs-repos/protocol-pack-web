@@ -37,6 +37,9 @@ import com.slytechs.protocol.pack.web.constants.WebIdTable;
 public final class WebProtocolPack extends Pack<WebIdTable> {
 
 	/**
+	 * Extension factory.
+	 *
+	 * @return the dissector extension factory
 	 * @see com.slytechs.protocol.pack.Pack#extensionFactory()
 	 */
 	@Override
@@ -44,6 +47,12 @@ public final class WebProtocolPack extends Pack<WebIdTable> {
 		return this::newExtension;
 	}
 
+	/**
+	 * New extension.
+	 *
+	 * @param type the type
+	 * @return the dissector extension
+	 */
 	private DissectorExtension newExtension(PacketDescriptorType type) {
 		return switch (type) {
 		case TYPE2 -> new WebType2Dissector();
@@ -54,6 +63,11 @@ public final class WebProtocolPack extends Pack<WebIdTable> {
 	/** WEB Protocol Pack singleton definition. */
 	private static final WebProtocolPack SINGLETON = new WebProtocolPack();
 
+	/**
+	 * Singleton.
+	 *
+	 * @return the web protocol pack
+	 */
 	public static WebProtocolPack singleton() {
 		return SINGLETON;
 	}
@@ -66,7 +80,10 @@ public final class WebProtocolPack extends Pack<WebIdTable> {
 	}
 
 	/**
-	 * @see com.slytechs.protocol.Pack#findHeader(int)
+	 * Find header.
+	 *
+	 * @param id the id
+	 * @return the optional
 	 */
 	@Override
 	public Optional<HeaderInfo> findHeader(int id) {

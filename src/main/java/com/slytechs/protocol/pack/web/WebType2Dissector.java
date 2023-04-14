@@ -31,12 +31,24 @@ import com.slytechs.protocol.descriptor.PacketDissector.RecordRecorder;
  */
 class WebType2Dissector implements DissectorExtension {
 
+	/** The recorder. */
 	private RecordRecorder recorder;
 
+	/**
+	 * Instantiates a new web type 2 dissector.
+	 */
 	public WebType2Dissector() {
 	}
 
 	/**
+	 * Dissect ports.
+	 *
+	 * @param buffer   the buffer
+	 * @param offset   the offset
+	 * @param encapsId the encaps id
+	 * @param src      the src
+	 * @param dst      the dst
+	 * @return true, if successful
 	 * @see com.slytechs.protocol.descriptor.DissectorExtension#dissectPorts(java.nio.ByteBuffer,
 	 *      int, int, int, int)
 	 */
@@ -52,10 +64,24 @@ class WebType2Dissector implements DissectorExtension {
 		return false;
 	}
 
+	/**
+	 * Adds the record.
+	 *
+	 * @param id     the id
+	 * @param offset the offset
+	 * @param length the length
+	 * @return true, if successful
+	 */
 	private boolean addRecord(int id, int offset, int length) {
 		return recorder.addRecord(id, offset, length);
 	}
 
+	/**
+	 * Dissect http.
+	 *
+	 * @param buf    the buf
+	 * @param offset the offset
+	 */
 	private void dissectHttp(ByteBuffer buf, int offset) {
 		int len = buf.remaining() - offset;
 
@@ -64,6 +90,8 @@ class WebType2Dissector implements DissectorExtension {
 	}
 
 	/**
+	 * Reset.
+	 *
 	 * @see com.slytechs.protocol.descriptor.DissectorExtension#reset()
 	 */
 	@Override
@@ -71,6 +99,9 @@ class WebType2Dissector implements DissectorExtension {
 	}
 
 	/**
+	 * Sets the extensions.
+	 *
+	 * @param ext the new extensions
 	 * @see com.slytechs.protocol.descriptor.DissectorExtension#setExtensions(com.slytechs.protocol.descriptor.DissectorExtension)
 	 */
 	@Override
@@ -78,6 +109,9 @@ class WebType2Dissector implements DissectorExtension {
 	}
 
 	/**
+	 * Sets the recorder.
+	 *
+	 * @param recorder the new recorder
 	 * @see com.slytechs.protocol.descriptor.DissectorExtension#setRecorder(com.slytechs.protocol.descriptor.PacketDissector.RecordRecorder)
 	 */
 	@Override

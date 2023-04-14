@@ -18,10 +18,11 @@
 package com.slytechs.protocol.pack.web.constants;
 
 /**
+ * The Class WebConstants.
+ *
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
  * @author Mark Bednarczyk
- *
  */
 public final class WebConstants {
 	
@@ -33,6 +34,9 @@ public final class WebConstants {
 
 	
 
+	/**
+	 * Instantiates a new web constants.
+	 */
 	private WebConstants() {
 	}
 

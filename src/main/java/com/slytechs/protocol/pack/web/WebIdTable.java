@@ -43,15 +43,22 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	/** The payload. */
 	PACK(),
 
+	/** The http. */
 	HTTP(Http::new),
 
+	/** The html. */
 	HTML(Html::new),
 
 	;
 
+	/** The Constant WEB_ID_PACK. */
 	// @formatter:off
 	public static final int WEB_ID_PACK     = 0  | PACK_ID_WEB;
+	
+	/** The Constant WEB_ID_HTTP. */
 	public static final int WEB_ID_HTTP     = 1  | PACK_ID_WEB;
+	
+	/** The Constant WEB_ID_HTML. */
 	public static final int WEB_ID_HTML     = 2  | PACK_ID_WEB;
 	// @formatter:on
 
