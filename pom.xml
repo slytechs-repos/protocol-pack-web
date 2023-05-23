@@ -5,7 +5,7 @@
 	<groupId>com.slytechs.jnet</groupId>
 	<artifactId>web-protocols</artifactId>
 	<!-- mvn versions:set -DnewVersion=_new_version_ -->
-	<version>0.9-SNAPSHOT</version>
+	<version>0.9</version>
 	<name>Web Protocol Pack</name>
 	<description>Web related group of network protocol definitions</description>
 	<url>https://www.slytechs.com</url>

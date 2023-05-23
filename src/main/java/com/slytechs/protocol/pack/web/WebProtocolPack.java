@@ -20,8 +20,8 @@ package com.slytechs.protocol.pack.web;
 import java.util.Optional;
 
 import com.slytechs.protocol.HeaderInfo;
-import com.slytechs.protocol.descriptor.DissectorExtension;
-import com.slytechs.protocol.descriptor.DissectorExtension.DissectorExtensionFactory;
+import com.slytechs.protocol.descriptor.PacketDissectorExtension;
+import com.slytechs.protocol.descriptor.PacketDissectorExtension.DissectorExtensionFactory;
 import com.slytechs.protocol.pack.Pack;
 import com.slytechs.protocol.pack.PackId;
 import com.slytechs.protocol.pack.ProtocolPackTable;
@@ -53,7 +53,7 @@ public final class WebProtocolPack extends Pack<WebIdTable> {
 	 * @param type the type
 	 * @return the dissector extension
 	 */
-	private DissectorExtension newExtension(PacketDescriptorType type) {
+	private PacketDissectorExtension newExtension(PacketDescriptorType type) {
 		return switch (type) {
 		case TYPE2 -> new WebType2Dissector();
 		default -> null;
