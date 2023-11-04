@@ -22,7 +22,7 @@ import static com.slytechs.protocol.pack.ProtocolPackTable.*;
 import java.util.function.Supplier;
 
 import com.slytechs.protocol.Header;
-import com.slytechs.protocol.HeaderExtensionInfo;
+import com.slytechs.protocol.HeaderOptionInfo;
 import com.slytechs.protocol.HeaderInfo;
 import com.slytechs.protocol.HeaderSupplier;
 import com.slytechs.protocol.Other;
@@ -84,7 +84,7 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	private final HeaderSupplier supplier;
 
 	/** The extensions supplier. */
-	private final Supplier<HeaderExtensionInfo[]> extensionsSupplier;
+	private final Supplier<HeaderOptionInfo[]> extensionsSupplier;
 
 	/**
 	 * Instantiates a new core header info.
@@ -92,7 +92,7 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	WebIdTable() {
 		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = Other::new;
-		this.extensionsSupplier = () -> HeaderExtensionInfo.EMPTY_ARRAY;
+		this.extensionsSupplier = () -> HeaderOptionInfo.EMPTY_ARRAY;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	WebIdTable(HeaderSupplier supplier) {
 		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = supplier;
-		this.extensionsSupplier = () -> HeaderExtensionInfo.EMPTY_ARRAY;
+		this.extensionsSupplier = () -> HeaderOptionInfo.EMPTY_ARRAY;
 	}
 
 	/**
@@ -112,7 +112,7 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	 * @param supplier           the supplier
 	 * @param extensionsSupplier the extensions supplier
 	 */
-	WebIdTable(HeaderSupplier supplier, Supplier<HeaderExtensionInfo[]> extensionsSupplier) {
+	WebIdTable(HeaderSupplier supplier, Supplier<HeaderOptionInfo[]> extensionsSupplier) {
 		this.id = PackId.encodeId(ProtocolPackTable.CORE, ordinal());
 		this.supplier = supplier;
 		this.extensionsSupplier = extensionsSupplier;
@@ -122,10 +122,10 @@ public enum WebIdTable implements HeaderInfo, PackId {
 	 * Gets the extension infos.
 	 *
 	 * @return the extension infos
-	 * @see com.slytechs.protocol.HeaderInfo#getExtensionInfos()
+	 * @see com.slytechs.protocol.HeaderInfo#getOptionInfos()
 	 */
 	@Override
-	public HeaderExtensionInfo[] getExtensionInfos() {
+	public HeaderOptionInfo[] getOptionInfos() {
 		return extensionsSupplier.get();
 	}
 

@@ -34,7 +34,7 @@ import com.slytechs.protocol.pack.web.constants.WebIdTable;
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
  */
-public final class WebProtocolPack extends Pack<WebIdTable> {
+public final class WebPackDefinition extends Pack<WebIdTable> {
 
 	/**
 	 * Extension factory.
@@ -61,21 +61,21 @@ public final class WebProtocolPack extends Pack<WebIdTable> {
 	}
 
 	/** WEB Protocol Pack singleton definition. */
-	private static final WebProtocolPack SINGLETON = new WebProtocolPack();
+	private static final WebPackDefinition SINGLETON = new WebPackDefinition();
 
 	/**
 	 * Singleton.
 	 *
 	 * @return the web protocol pack
 	 */
-	public static WebProtocolPack singleton() {
+	public static WebPackDefinition singleton() {
 		return SINGLETON;
 	}
 
 	/**
 	 * Pack definitions are designed to be singltons.
 	 */
-	private WebProtocolPack() {
+	private WebPackDefinition() {
 		super(ProtocolPackTable.WEB, WebIdTable.values());
 	}
 
