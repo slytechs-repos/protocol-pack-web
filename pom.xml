@@ -2,12 +2,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.slytechs.jnet</groupId>
-	<artifactId>web-protocols</artifactId>
+	<groupId>com.slytechs.jnet.protocol</groupId>
+	<artifactId>protocol-pack-web</artifactId>
 	<!-- mvn versions:set -DnewVersion=_new_version_ -->
-	<version>0.9-SNAPSHOT</version>
-	<name>Web Protocol Pack</name>
-	<description>Web related group of network protocol definitions</description>
+	<version>0.1.0-SNAPSHOT</version>
+	<name>Protocol Pack Web</name>
+	<description>Web family protocol pack</description>
 	<url>https://www.slytechs.com</url>
 	<properties>
 		<jdk.version>21</jdk.version>
