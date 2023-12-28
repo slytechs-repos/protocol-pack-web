@@ -15,43 +15,29 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web;
-
-import java.nio.charset.StandardCharsets;
-
-import com.slytechs.protocol.Header;
-import com.slytechs.protocol.meta.Meta;
-import com.slytechs.protocol.pack.web.constants.WebIdTable;
+package com.slytechs.jnet.protocol.web.constants;
 
 /**
- * Hypertext Markup Language (HTML).
+ * The Class WebConstants.
  *
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
+ * @author Mark Bednarczyk
  */
-@Meta
-public final class Html extends Header {
+public final class WebConstants {
+	
+	/* @formatter:off - http constants */
+	/* @formatter:on - http constants */
+	
+	/* @formatter:off - html constants */
+	/* @formatter:on - html constants */
 
-	/** Html header ID. */
-	public static final int ID = WebIdTable.WEB_ID_HTML;
-
-	/**
-	 * Instantiates a new html.
-	 */
-	public Html() {
-		super(ID);
-	}
+	
 
 	/**
-	 * The contents of the html.
-	 *
-	 * @return the char[]
+	 * Instantiates a new web constants.
 	 */
-	public char[] text() {
-		byte[] array = new byte[headerLength()];
-
-		return new String(array, StandardCharsets.UTF_8)
-				.toCharArray();
+	private WebConstants() {
 	}
 
 }

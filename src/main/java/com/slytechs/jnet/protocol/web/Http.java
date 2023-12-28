@@ -15,11 +15,11 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web;
+package com.slytechs.jnet.protocol.web;
 
-import com.slytechs.protocol.Header;
-import com.slytechs.protocol.meta.Meta;
-import com.slytechs.protocol.pack.web.constants.WebIdTable;
+import com.slytechs.jnet.protocol.Header;
+import com.slytechs.jnet.protocol.meta.Meta;
+import com.slytechs.jnet.protocol.web.constants.WebIdTable;
 
 /**
  * Hypertext Transfer Protocol (HTTP).

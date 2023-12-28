@@ -15,18 +15,18 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web;
+package com.slytechs.jnet.protocol.web;
 
 import java.util.Optional;
 
-import com.slytechs.protocol.HeaderInfo;
-import com.slytechs.protocol.descriptor.PacketDissectorExtension;
-import com.slytechs.protocol.descriptor.PacketDissectorExtension.DissectorExtensionFactory;
-import com.slytechs.protocol.pack.Pack;
-import com.slytechs.protocol.pack.PackId;
-import com.slytechs.protocol.pack.ProtocolPackTable;
-import com.slytechs.protocol.pack.core.constants.PacketDescriptorType;
-import com.slytechs.protocol.pack.web.constants.WebIdTable;
+import com.slytechs.jnet.protocol.HeaderInfo;
+import com.slytechs.jnet.protocol.core.constants.PacketDescriptorType;
+import com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension;
+import com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension.DissectorExtensionFactory;
+import com.slytechs.jnet.protocol.pack.Pack;
+import com.slytechs.jnet.protocol.pack.PackId;
+import com.slytechs.jnet.protocol.pack.ProtocolPackTable;
+import com.slytechs.jnet.protocol.web.constants.WebIdTable;
 
 /**
  * Protocol pack level information about the protocols in this module.
@@ -40,7 +40,7 @@ public final class WebPackDefinition extends Pack<WebIdTable> {
 	 * Extension factory.
 	 *
 	 * @return the dissector extension factory
-	 * @see com.slytechs.protocol.pack.Pack#extensionFactory()
+	 * @see com.slytechs.jnet.protocol.pack.Pack#extensionFactory()
 	 */
 	@Override
 	protected DissectorExtensionFactory extensionFactory() {

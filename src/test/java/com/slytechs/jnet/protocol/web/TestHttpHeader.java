@@ -15,7 +15,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web;
+package com.slytechs.jnet.protocol.web;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -24,11 +24,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import com.slytechs.protocol.HeaderNotFound;
-import com.slytechs.protocol.descriptor.PacketDissector;
-import com.slytechs.protocol.pack.Pack;
-import com.slytechs.protocol.pack.core.constants.CoreConstants;
-import com.slytechs.protocol.pack.core.constants.PacketDescriptorType;
+import com.slytechs.jnet.protocol.HeaderNotFound;
+import com.slytechs.jnet.protocol.core.constants.CoreConstants;
+import com.slytechs.jnet.protocol.core.constants.PacketDescriptorType;
+import com.slytechs.jnet.protocol.descriptor.PacketDissector;
+import com.slytechs.jnet.protocol.pack.Pack;
+import com.slytechs.jnet.protocol.web.Http;
 
 /**
  * VLAN header tests

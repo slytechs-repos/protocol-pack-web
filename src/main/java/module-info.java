@@ -25,9 +25,9 @@
  * 
  * @author mark
  */
-module com.slytechs.protocol.pack.web {
-	exports com.slytechs.protocol.pack.web;
-	exports com.slytechs.protocol.pack.web.constants;
+module com.slytechs.jnet.protocol.web {
+	exports com.slytechs.jnet.protocol.web;
+	exports com.slytechs.jnet.protocol.web.constants;
 
-	requires transitive com.slytechs.protocol;
+	requires transitive com.slytechs.jnet.protocol.core;
 }

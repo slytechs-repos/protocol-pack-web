@@ -15,21 +15,21 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web.constants;
+package com.slytechs.jnet.protocol.web.constants;
 
-import static com.slytechs.protocol.pack.ProtocolPackTable.*;
+import static com.slytechs.jnet.protocol.pack.ProtocolPackTable.*;
 
 import java.util.function.Supplier;
 
-import com.slytechs.protocol.Header;
-import com.slytechs.protocol.HeaderOptionInfo;
-import com.slytechs.protocol.HeaderInfo;
-import com.slytechs.protocol.HeaderSupplier;
-import com.slytechs.protocol.Other;
-import com.slytechs.protocol.pack.PackId;
-import com.slytechs.protocol.pack.ProtocolPackTable;
-import com.slytechs.protocol.pack.web.Html;
-import com.slytechs.protocol.pack.web.Http;
+import com.slytechs.jnet.protocol.Header;
+import com.slytechs.jnet.protocol.HeaderInfo;
+import com.slytechs.jnet.protocol.HeaderOptionInfo;
+import com.slytechs.jnet.protocol.HeaderSupplier;
+import com.slytechs.jnet.protocol.Other;
+import com.slytechs.jnet.protocol.pack.PackId;
+import com.slytechs.jnet.protocol.pack.ProtocolPackTable;
+import com.slytechs.jnet.protocol.web.Html;
+import com.slytechs.jnet.protocol.web.Http;
 
 /**
  * Web protocol pack. Table of all protocols included in the web protocol pack.

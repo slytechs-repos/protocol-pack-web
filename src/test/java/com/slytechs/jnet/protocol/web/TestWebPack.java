@@ -15,29 +15,46 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web.constants;
+package com.slytechs.jnet.protocol.web;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import com.slytechs.jnet.protocol.pack.Pack;
+import com.slytechs.jnet.protocol.pack.ProtocolPackTable;
 
 /**
- * The Class WebConstants.
- *
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
  * @author Mark Bednarczyk
+ *
  */
-public final class WebConstants {
-	
-	/* @formatter:off - http constants */
-	/* @formatter:on - http constants */
-	
-	/* @formatter:off - html constants */
-	/* @formatter:on - html constants */
-
-	
+@Disabled
+class TestWebPack {
 
 	/**
-	 * Instantiates a new web constants.
+	 * @throws java.lang.Exception
 	 */
-	private WebConstants() {
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	void loadPack_WEB() {
+		boolean loaded = Pack.loadPack(ProtocolPackTable.WEB);
+
+//		System.out.printf("WEB loaded=%s%n", loaded);
+
+		Pack.listAllDeclaredPacks().forEach(System.out::println);
 	}
 
 }

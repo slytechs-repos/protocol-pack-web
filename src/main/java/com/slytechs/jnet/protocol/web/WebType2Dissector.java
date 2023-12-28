@@ -15,12 +15,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web;
+package com.slytechs.jnet.protocol.web;
 
 import java.nio.ByteBuffer;
 
-import com.slytechs.protocol.descriptor.PacketDissectorExtension;
-import com.slytechs.protocol.descriptor.PacketDissector.RecordRecorder;
+import com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension;
+import com.slytechs.jnet.protocol.descriptor.PacketDissector.RecordRecorder;
 
 /**
  * Web protocol pack, descriptor type 2 dissector.
@@ -49,7 +49,7 @@ class WebType2Dissector implements PacketDissectorExtension {
 	 * @param src      the src
 	 * @param dst      the dst
 	 * @return true, if successful
-	 * @see com.slytechs.protocol.descriptor.PacketDissectorExtension#dissectPorts(java.nio.ByteBuffer,
+	 * @see com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension#dissectPorts(java.nio.ByteBuffer,
 	 *      int, int, int, int)
 	 */
 	@Override
@@ -92,7 +92,7 @@ class WebType2Dissector implements PacketDissectorExtension {
 	/**
 	 * Reset.
 	 *
-	 * @see com.slytechs.protocol.descriptor.PacketDissectorExtension#reset()
+	 * @see com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension#reset()
 	 */
 	@Override
 	public void reset() {
@@ -102,7 +102,7 @@ class WebType2Dissector implements PacketDissectorExtension {
 	 * Sets the extensions.
 	 *
 	 * @param ext the new extensions
-	 * @see com.slytechs.protocol.descriptor.PacketDissectorExtension#setExtensions(com.slytechs.protocol.descriptor.PacketDissectorExtension)
+	 * @see com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension#setExtensions(com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension)
 	 */
 	@Override
 	public void setExtensions(PacketDissectorExtension ext) {
@@ -112,7 +112,7 @@ class WebType2Dissector implements PacketDissectorExtension {
 	 * Sets the recorder.
 	 *
 	 * @param recorder the new recorder
-	 * @see com.slytechs.protocol.descriptor.PacketDissectorExtension#setRecorder(com.slytechs.protocol.descriptor.PacketDissector.RecordRecorder)
+	 * @see com.slytechs.jnet.protocol.descriptor.PacketDissectorExtension#setRecorder(com.slytechs.jnet.protocol.descriptor.PacketDissector.RecordRecorder)
 	 */
 	@Override
 	public void setRecorder(RecordRecorder recorder) {

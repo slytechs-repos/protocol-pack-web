@@ -15,13 +15,13 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web;
+package com.slytechs.jnet.protocol.web;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import com.slytechs.protocol.Packet;
-import com.slytechs.protocol.runtime.util.HexStrings;
+import com.slytechs.jnet.jnetruntime.util.HexStrings;
+import com.slytechs.jnet.protocol.Packet;
 
 /**
  * Various hex packets used in testing.

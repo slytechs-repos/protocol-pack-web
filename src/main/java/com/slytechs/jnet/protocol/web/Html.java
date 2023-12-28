@@ -15,46 +15,43 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.slytechs.protocol.pack.web;
+package com.slytechs.jnet.protocol.web;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import java.nio.charset.StandardCharsets;
 
-import com.slytechs.protocol.pack.Pack;
-import com.slytechs.protocol.pack.ProtocolPackTable;
+import com.slytechs.jnet.protocol.Header;
+import com.slytechs.jnet.protocol.meta.Meta;
+import com.slytechs.jnet.protocol.web.constants.WebIdTable;
 
 /**
+ * Hypertext Markup Language (HTML).
+ *
  * @author Sly Technologies Inc
  * @author repos@slytechs.com
- * @author Mark Bednarczyk
- *
  */
-@Disabled
-class TestWebPack {
+@Meta
+public final class Html extends Header {
+
+	/** Html header ID. */
+	public static final int ID = WebIdTable.WEB_ID_HTML;
 
 	/**
-	 * @throws java.lang.Exception
+	 * Instantiates a new html.
 	 */
-	@BeforeEach
-	void setUp() throws Exception {
+	public Html() {
+		super(ID);
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * The contents of the html.
+	 *
+	 * @return the char[]
 	 */
-	@AfterEach
-	void tearDown() throws Exception {
-	}
+	public char[] text() {
+		byte[] array = new byte[headerLength()];
 
-	@Test
-	void loadPack_WEB() {
-		boolean loaded = Pack.loadPack(ProtocolPackTable.WEB);
-
-//		System.out.printf("WEB loaded=%s%n", loaded);
-
-		Pack.listAllDeclaredPacks().forEach(System.out::println);
+		return new String(array, StandardCharsets.UTF_8)
+				.toCharArray();
 	}
 
 }
