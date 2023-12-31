@@ -29,6 +29,6 @@ module com.slytechs.jnet.protocol.web {
 	exports com.slytechs.jnet.protocol.web;
 	exports com.slytechs.jnet.protocol.web.constants;
 
-	requires transitive com.slytechs.jnet.protocol.core;
+	requires transitive com.slytechs.jnet.protocol;
 	requires com.slytechs.jnet.jnetruntime;
 }

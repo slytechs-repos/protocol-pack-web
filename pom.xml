@@ -14,8 +14,8 @@
 		https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
 		<dependency>
 			<groupId>com.slytechs.jnet.protocol</groupId>
-			<artifactId>protocol-pack-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>protocol-pack-api</artifactId>
+			<version>${protocol-sdk.version}</version>
 		</dependency>
   	</dependencies>
 </project>
