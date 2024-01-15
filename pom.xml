@@ -1,15 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.slytechs.jnet.protocol</groupId>
-    <artifactId>protocol-pack-sdk-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>protocol-pack-web</artifactId>
-  <name>Protocol Pack Web</name>
-  <description>Web family protocol pack</description>
-  
-  	<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.slytechs.jnet.protocol</groupId>
+		<artifactId>protocol-pack-sdk-parent</artifactId>
+		<version>0.10.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>protocol-pack-web</artifactId>
+	<name>Protocol Pack Web</name>
+	<description>Web family protocol pack</description>
+
+	<dependencies>
 		<!--
 		https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
 		<dependency>
@@ -17,5 +19,5 @@
 			<artifactId>protocol-pack-api</artifactId>
 			<version>${protocol-sdk.version}</version>
 		</dependency>
-  	</dependencies>
+	</dependencies>
 </project>
