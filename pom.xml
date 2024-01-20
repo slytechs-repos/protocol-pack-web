@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>com.slytechs.jnet.protocol</groupId>
 			<artifactId>protocol-pack-api</artifactId>
-			<version>${protocol-sdk.version}</version>
+			<version>0.10.0</version>
 		</dependency>
 	</dependencies>
 </project>
